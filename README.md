@@ -1,7 +1,12 @@
+---
+layout: home
+permalink: index.html
+
+repository-name: e17-co328-Skim-Sequencing-Analysis
+Title: Analysis Software for Next Generation Skim Sequencing
+---
 ___
-# DELETE THIS INSTRUCTIONS AND ADD A SHORT INTRODUCTION ABOUT YOUR PROJECT
+# Analysis Software for Next Generation Skim Sequencing
 ___
 
-## Please refer the instructions in below URL:
 
-https://projects.ce.pdn.ac.lk/docs/how-to-add-a-project

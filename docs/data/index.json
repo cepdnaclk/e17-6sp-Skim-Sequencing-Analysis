@@ -1,45 +1,52 @@
 {
     "team": [
         {
-            "name": "Team Member Name 1",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
+            "name": "Imesh Balasuriya",
+            "email": "e17018@eng.pdn.ac.lk",
+            "eNumber": "E/17/018",
+            "github_profile":"ImeshBalasuriya",
             "linkedin_profile":"#",
             "website": "#"
         },
         {
-            "name": "Team Member Name 2",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
-            "linkedin_profile":"#",
+            "name": "Madhushan Ramalingam",
+            "email": "e17194@eng.pdn.ac.lk",
+            "eNumber": "E/17/194",
+            "github_profile":"DrMadhushan",
+            "linkedin_profile":"https://linkedin.com/in/madhushan-ramalingam",
             "website": "#"
         },
         {
-            "name": "Team Member Name 3",
-            "email": "email@eng.pdn.ac.lk",
-            "eNumber": "E/yy/xxx",
-            "github_profile":"#",
+            "name": "Ravisha Rupasinghe",
+            "email": "e17296@eng.pdn.ac.lk",
+            "eNumber": "E/17/296",
+            "github_profile":"RavishaHR",
             "linkedin_profile":"#",
             "website": "#"
         }
     ],
     "supervisors": [
         {
-            "name": "Dr. Supervisor 1",
-            "email": "email@eng.pdn.ac.lk",
+            "name": "Dr. Asitha Bandaranayake",
+            "email": "asithab@pdn.ac.lk",
             "linkedin_profile":"#",
             "researchgate_profile":"#",
             "website": "#"
         },
         {
-            "name": "Supervisor 2",
+            "name": "Shyaman Jayasundara",
+            "email": "contact@shyaman.me",
+            "linkedin_profile":"#",
+            "researchgate_profile":"#",
+            "website": "www.shyaman.me"
+        },
+        {
+            "name": "Thushara Bandara",
             "email": "email@eng.pdn.ac.lk",
             "linkedin_profile":"#",
             "researchgate_profile":"#",
             "website": "#"
         }
     ],
-    "tags": ["Web", "Embedded Systems"]
+    "tags": ["NGS", "Skim Sequencing", "Bioinformatics", "Machine Learning"]
 }
