@@ -1,0 +1,9 @@
+.right_section {
+    border-left: 2px solid #dbdbdb;
+}
+.left_section {
+    border-right: 2px solid #dbdbdb;
+}
+.bottom_section {
+    border-top: 2px solid #dbdbdb;
+}
