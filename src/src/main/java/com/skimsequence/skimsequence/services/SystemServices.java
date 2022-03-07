@@ -1,13 +1,15 @@
 package com.skimsequence.skimsequence.services;
 
-import java.net.NetworkInterface;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class SystemService {
+public class SystemServices {
+
     public String runningSystem() {
         return System.getProperty("os.name");
     }
+
+    //To check for connectivity
     public static boolean isConnected() {
         try {
             URL url = new URL("http://anaconda.org/");
@@ -19,5 +21,10 @@ public class SystemService {
             // System.out.println("Internet Not Connected");
             return false;
         }
+    }
+
+    //To check and retrieve system info
+    public void getSysInfo (){
+
     }
 }
