@@ -9,4 +9,8 @@ module com.skimsequence.skimsequence {
 
     opens com.skimsequence.skimsequence to javafx.fxml;
     exports com.skimsequence.skimsequence;
+    exports com.skimsequence.skimsequence.services;
+    opens com.skimsequence.skimsequence.services to javafx.fxml;
+    exports com.skimsequence.skimsequence.controllers;
+    opens com.skimsequence.skimsequence.controllers to javafx.fxml;
 }

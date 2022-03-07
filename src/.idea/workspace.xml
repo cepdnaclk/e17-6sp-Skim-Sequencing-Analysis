@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="221125a6-823d-457c-a17c-677133ab5e9e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_17_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_mac_aarch64_17_0_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/wrappers/GetOrganelle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_mac_aarch64_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_mac_aarch64_17_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_mac_aarch64_17_0_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/HelloApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/skimsequence/skimsequence/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/skimsequence/skimsequence/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/CLIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/services/CLIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/SystemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/skimsequence/skimsequence/services/SystemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/skimsequence/skimsequence/HomeView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/skimsequence/skimsequence/HomeView.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,10 +59,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="17" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/skimsequence" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -92,7 +98,7 @@
       <module name="skimSequence" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.skimsequence.skimsequence.*" />
+          <option name="PATTERN" value="com.skimsequence.skimsequence.services.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -124,17 +130,53 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645944375179</updated>
+      <workItem from="1646260748754" duration="944000" />
+      <workItem from="1646384005582" duration="3996000" />
+      <workItem from="1646406946773" duration="441000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="043920de-847b-4557-92e4-03cce84facee">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:D:/Engineering/Year 3/Semester 6/6SP/e17-co328-Skim-Sequencing-Analysis/src/src/main/java/com/skimsequence/skimsequence/wrappers" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="043920de-847b-4557-92e4-03cce84facee" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>

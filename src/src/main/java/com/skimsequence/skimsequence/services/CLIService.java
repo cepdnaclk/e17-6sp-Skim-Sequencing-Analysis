@@ -1,4 +1,4 @@
-package com.skimsequence.skimsequence;
+package com.skimsequence.skimsequence.services;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
