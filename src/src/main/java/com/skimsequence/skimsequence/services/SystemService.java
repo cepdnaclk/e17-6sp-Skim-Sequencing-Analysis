@@ -1,4 +1,4 @@
-package com.skimsequence.skimsequence;
+package com.skimsequence.skimsequence.services;
 
 import java.net.NetworkInterface;
 import java.net.URL;
