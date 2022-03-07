@@ -1,3 +1,4 @@
+[![Board Status](https://dev.azure.com/6sp-g5-ngs-analysis/0d0a4ee5-e6bc-4dde-895f-f21779e5dfbb/38e5f9c0-e6f8-4d0d-84d1-93feaf6c07ce/_apis/work/boardbadge/7ca085d3-2acb-4f6d-8b11-feb710c272df)](https://dev.azure.com/6sp-g5-ngs-analysis/0d0a4ee5-e6bc-4dde-895f-f21779e5dfbb/_boards/board/t/38e5f9c0-e6f8-4d0d-84d1-93feaf6c07ce/Microsoft.RequirementCategory)
 ---
 layout: home
 permalink: index.html
