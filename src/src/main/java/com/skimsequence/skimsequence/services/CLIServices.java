@@ -3,7 +3,9 @@ package com.skimsequence.skimsequence.services;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class CLIService {
+public class CLIServices {
+
+    //To execute commands in the command line and get output
     public String exec(String command) throws Exception{
         Runtime run = Runtime.getRuntime();
         Process process = run.exec(command);
@@ -15,6 +17,16 @@ public class CLIService {
             result += out + "\n";
         }
         return result;
+    }
+
+    //To create a virtual environment
+    public void createVenv () {
+
+    }
+
+    //To handle sudo permissions
+    public void handleSudo (){
+
     }
 
 }

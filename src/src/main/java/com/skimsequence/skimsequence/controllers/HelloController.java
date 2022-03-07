@@ -4,17 +4,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import com.skimsequence.skimsequence.services.CLIService;
-import javafx.stage.FileChooser;
-
-import java.io.File;
+import com.skimsequence.skimsequence.services.CLIServices;
+import com.skimsequence.skimsequence.services.FileServices;
+import com.skimsequence.skimsequence.services.UserServices;
+import com.skimsequence.skimsequence.services.SystemServices;
 
 public class HelloController {
+    //Initialize all GUI components
+    @FXML private Button execbtn;
     @FXML private Label welcomeText;
     @FXML private Button button;
     @FXML private Label resultsText;
 
-    private CLIService cli = new CLIService();
+    private CLIServices cli = new CLIServices();
 
     @FXML
     protected void onHelloButtonClick() {
@@ -22,7 +24,7 @@ public class HelloController {
         button.setText("Clicked");
     }
     @FXML
-    protected void onRunButtonClick() {
+    protected void onRunButtonClick() { //Remove
         String command = "ls -l";
         String result;
 
@@ -36,23 +38,84 @@ public class HelloController {
         }
     }
 
+    //For the leftmost pane
+    //On selecting the pipeline to call the necessary wrapper
+    @FXML
+    protected void onSelPipeline(){
+
+    }
+
+    //On selecting the assembly tool for the pipeline
+    @FXML
+    protected void onSelAssemblyTool(){
+
+    }
+
+    //To get the absolute path for the input file
     @FXML
     protected void onBrowseClick() {
         try {
-            FileChooser fileChooser = new FileChooser();
-            fileChooser.setTitle("Browse for file path");
-            File file = fileChooser.showOpenDialog(null);
-            if (file != null) {
-                // Shows the absolute file path
-                resultsText.setText("Opening " + file.getPath());
-
-            } else {
-                System.out.println("File not selected."); // A file was not chosen
-            }
+            String absPath = FileServices.getAbsolutePath();
+            resultsText.setText("Opening ... " + absPath);
 
         } catch(Exception e) {
             resultsText.setText("Error in retrieving file!");
         }
     }
+
+    //For the middle pane
+    //Gets user preferences and calls file services for pre-processing (calls UserServices and FileServices)
+    @FXML
+    protected void updateMiddle(){
+
+    }
+
+    //To start the assembly process
+    @FXML
+    protected void startAssembly (){ //Call necessary wrapper
+
+    }
+
+    //To stop/interrupt assembly
+    @FXML
+    protected  void stopExec (){ //Call necessary wrapper
+
+    }
+
+    //For the bottom pane (Recommendations)
+    //Call necessary services and update pane
+    @FXML
+    protected void getNewRecommendations (){
+
+    }
+
+    //For the rightmost pane
+    //To update the progress bar in the Results pane
+    @FXML
+    protected void updateProgressBar (){
+
+    }
+
+    //To update the output logs (create a text box to display these and update it)
+    @FXML
+    protected void displayOutputLogs (){
+
+    }
+
+    //Other
+    //Check plugins button - should open another window - control using PluginController
+    @FXML
+    protected void onClickPluginInfo (){
+
+    }
+
+
+
+
+
+
+
+
+
 
 }

@@ -1,6 +1,6 @@
 package com.skimsequence.skimsequence.wrappers;
 
-public class GetOrganelle {
+public class NovoPlasty {
 
     //Installation
     //To create directory
@@ -16,5 +16,4 @@ public class GetOrganelle {
 
     //Output
     //To retrieve output and logs
-
 }

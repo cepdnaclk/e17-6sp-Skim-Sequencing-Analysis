@@ -1,6 +1,6 @@
 package com.skimsequence.skimsequence.wrappers;
 
-public class GetOrganelle {
+public class FastPlast {
 
     //Installation
     //To create directory
