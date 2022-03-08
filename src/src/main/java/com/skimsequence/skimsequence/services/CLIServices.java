@@ -29,4 +29,9 @@ public class CLIServices {
 
     }
 
+    //To check the version of other tools like python, java
+    public void checkVersion (){
+
+    }
+
 }
