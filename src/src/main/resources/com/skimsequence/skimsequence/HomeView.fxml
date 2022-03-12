@@ -35,76 +35,51 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skimsequence.skimsequence.controllers.HelloController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="File">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Plugins and Packages" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Pipeline">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Chloroplast" />
-                  <MenuItem mnemonicParsing="false" text="ITS" />
-                  <MenuItem mnemonicParsing="false" text="Mitochondria" />
-               </items>
-            </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skimsequence.skimsequence.controllers.HelloController">
    <left>
-      <VBox fx:id="vbox1" alignment="TOP_CENTER" prefHeight="265.0" prefWidth="175.0" spacing="5.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;" BorderPane.alignment="BOTTOM_LEFT">
+      <VBox fx:id="vbox1" alignment="TOP_CENTER" prefHeight="281.0" prefWidth="167.0" spacing="5.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;" BorderPane.alignment="BOTTOM_LEFT">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
          <children>
-            <ButtonBar prefHeight="40.0" prefWidth="200.0">
-               <buttons>
-                  <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="174.0" text="Choose pipeline" textAlignment="CENTER">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Chloroplast" />
-                      <MenuItem mnemonicParsing="false" text="Mitochondria" />
-                    </items>
-                  </MenuButton>
-               </buttons>
-            </ButtonBar>
-            <Label text="Choose input files">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Label>
-            <Button fx:id="execbtn" defaultButton="true" mnemonicParsing="false" onMouseClicked="#onBrowseClick" text="Browse">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin></Button>
+            <Label text="Pipeline Progress">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <ListView prefHeight="200.0" prefWidth="200.0" />
          </children>
       </VBox>
    </left>
    <center>
       <VBox prefHeight="265.0" prefWidth="117.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="BOTTOM_CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="151.0" text="Process" />
+            <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="151.0" text="Chloroplast Assembly">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
+            <Separator prefWidth="200.0" />
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="74.0" text="Assembler:" />
+            <MenuButton mnemonicParsing="false" text="Choose an Assembler...">
+              <items>
+                <MenuItem mnemonicParsing="false" text="GetOrganelle" />
+                <MenuItem mnemonicParsing="false" text="FastPlast" />
+                  <MenuItem mnemonicParsing="false" text="NovoPlasty" />
+              </items>
+            </MenuButton>
          </children>
          <padding>
-            <Insets top="5.0" />
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></VBox>
    </center>
    <right>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="265.0" prefWidth="290.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;" BorderPane.alignment="BOTTOM_CENTER">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="230.0" prefWidth="216.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;">
          <children>
-            <Label fx:id="resultsText" alignment="CENTER" prefHeight="17.0" prefWidth="348.0" text="Sample results" />
+            <Label fx:id="resultsText" alignment="CENTER" prefHeight="17.0" prefWidth="348.0" text="Results">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Label>
             <ProgressBar layoutX="20.0" opacity="0.65" prefHeight="48.0" prefWidth="348.0" progress="0.24">
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -117,7 +92,7 @@
             <Insets top="5.0" />
          </padding>
          <BorderPane.margin>
-            <Insets top="20.0" />
+            <Insets />
          </BorderPane.margin></VBox>
    </right>
    <bottom>
@@ -125,10 +100,28 @@
          <children>
             <ScrollPane fitToWidth="true" prefHeight="200.0" prefWidth="600.0">
               <content>
-                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="192.0" prefWidth="585.0" />
+                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="192.0" prefWidth="671.0" />
               </content>
             </ScrollPane>
          </children>
       </VBox>
    </bottom>
+   <top>
+      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="165.0" text="NGS Toolkit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+          <Button mnemonicParsing="false" text="Add File" />
+            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <ToggleButton mnemonicParsing="false" selected="true" text="Chloroplast" />
+            <ToggleButton layoutX="228.0" layoutY="12.0" mnemonicParsing="false" text="Mitochondria" />
+            <ToggleButton layoutX="308.0" layoutY="12.0" mnemonicParsing="false" text="ITS Region" />
+            <Separator layoutX="73.0" layoutY="10.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <Button layoutX="256.0" layoutY="12.0" mnemonicParsing="false" text="Preferences" />
+        </items>
+      </ToolBar>
+   </top>
 </BorderPane>
