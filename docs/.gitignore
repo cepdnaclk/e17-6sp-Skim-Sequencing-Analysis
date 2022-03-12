@@ -5,4 +5,8 @@ _site/
 Gemfile.lock
 Gemfile
 
+#VS Code files
+.vs/
+.vscode/
+
 # Add your own files to be ignored from git in here
