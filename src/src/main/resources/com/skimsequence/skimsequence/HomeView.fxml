@@ -68,6 +68,13 @@
                   <MenuItem mnemonicParsing="false" text="NovoPlasty" />
               </items>
             </MenuButton>
+            <Label text="Label">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="fileone" mnemonicParsing="false" onAction="#onBrowseFileOne" text="File 1" />
+            <Button fx:id="filetwo" mnemonicParsing="false" onAction="#onBrowseFileTwo" text="File 2" />
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

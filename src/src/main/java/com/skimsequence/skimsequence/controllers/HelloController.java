@@ -1,5 +1,6 @@
 package com.skimsequence.skimsequence.controllers;
 
+import com.skimsequence.skimsequence.wrappers.FastPlast;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -17,6 +18,9 @@ public class HelloController {
     @FXML private Label resultsText;
 
     private CLIServices cli = new CLIServices();
+    private String fileOne = "";
+    private String fileTwo = "";
+    private String assemblyTool = "FastPlast";
 
     @FXML
     protected void onHelloButtonClick() {
@@ -51,12 +55,26 @@ public class HelloController {
 
     }
 
-    //To get the absolute path for the input file
+    //To get the absolute path for input file 1
     @FXML
-    protected void onBrowseClick() {
+    protected void onBrowseFileOne() {
         try {
             String absPath = FileServices.getAbsolutePath();
             resultsText.setText("Opening ... " + absPath);
+            fileOne = absPath;
+
+        } catch(Exception e) {
+            resultsText.setText("Error in retrieving file!");
+        }
+    }
+
+    //To get the absolute path for input file 2
+    @FXML
+    protected void onBrowseFileTwo() {
+        try {
+            String absPath = FileServices.getAbsolutePath();
+            resultsText.setText("Opening ... " + absPath);
+            fileTwo = absPath;
 
         } catch(Exception e) {
             resultsText.setText("Error in retrieving file!");
@@ -72,8 +90,19 @@ public class HelloController {
 
     //To start the assembly process
     @FXML
-    protected void startAssembly (){ //Call necessary wrapper
+    protected Boolean startAssembly (){ //Call necessary wrapper
+        Boolean state = false;
+        try{
+            if(assemblyTool == "FastPlast"){
+                FastPlast tool = new FastPlast();
+                state = tool.startAssembly(fileOne, fileTwo);
+                //Set other user preferences
+            }
 
+        }catch (Exception e){
+
+        }
+        return state;
     }
 
     //To stop/interrupt assembly
