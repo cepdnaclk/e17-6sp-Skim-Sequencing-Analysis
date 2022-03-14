@@ -4,7 +4,7 @@ import javafx.stage.FileChooser;
 
 import java.io.File;
 
-public class FileServices {
+public class FileService {
 
     //To get the absolute path for a file
     public static String getAbsolutePath (){

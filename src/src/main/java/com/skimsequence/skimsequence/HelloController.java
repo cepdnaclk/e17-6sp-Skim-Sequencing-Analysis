@@ -3,12 +3,8 @@ package com.skimsequence.skimsequence;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.text.Text;
 
-import com.skimsequence.skimsequence.CLIService;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import com.skimsequence.skimsequence.services.CLIService;
 
 public class HelloController {
     @FXML private Label welcomeText;

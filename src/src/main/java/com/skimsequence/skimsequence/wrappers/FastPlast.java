@@ -1,12 +1,10 @@
 package com.skimsequence.skimsequence.wrappers;
 
-import com.skimsequence.skimsequence.services.CLIServices;
-
-
+import com.skimsequence.skimsequence.services.CLIService;
 
 public class FastPlast {
 
-    private static CLIServices cli = new CLIServices();
+    private static CLIService cli = new CLIService();
 
     //Installation
     //To create directory - Create directory under Chloroplast
