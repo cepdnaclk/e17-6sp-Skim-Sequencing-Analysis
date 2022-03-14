@@ -72,7 +72,19 @@ public class FastPlast {
     //Running
     //Get input file path and start running the tool
     //Input files are in FASTQ format
-
+    public static Boolean startAssembly (String file1, String file2){
+        Boolean state = false;
+        String path = "cd "; //Go to the fast-plast directory
+        //Add a name to the command. Add other additional options. Get them as user preferences.
+        String command = "perl fast-plast.pl -1 %s -2 %s --name %s --bowtie_index All --coverage_analysis --clean light";
+        try{
+            String result = cli.exec(command);
+            state = true;
+        }catch(Exception e){
+            state = false;
+        }
+        return state;
+    }
 
     //To halt execution
 
