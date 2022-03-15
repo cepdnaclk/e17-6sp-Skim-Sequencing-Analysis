@@ -1,6 +1,6 @@
 package com.skimsequence.skimsequence.services;
 
-public class PluginServices {
+public class PluginService {
 
     //To check available tools/plugins
     public void checkAvailPlugins (){

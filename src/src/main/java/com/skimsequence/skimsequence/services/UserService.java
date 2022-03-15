@@ -1,6 +1,6 @@
 package com.skimsequence.skimsequence.services;
 
-public class UserServices {
+public class UserService {
 
 
     //To set preferences

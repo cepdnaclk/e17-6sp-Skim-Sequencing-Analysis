@@ -3,8 +3,7 @@ package com.skimsequence.skimsequence.services;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class CLIServices {
-
+public class CLIService {
     //To execute commands in the command line and get output
     public String exec(String command) throws Exception{
         Runtime run = Runtime.getRuntime();

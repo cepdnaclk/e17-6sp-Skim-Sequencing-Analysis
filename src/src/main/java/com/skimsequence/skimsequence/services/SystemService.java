@@ -3,7 +3,7 @@ package com.skimsequence.skimsequence.services;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class SystemServices {
+public class SystemService {
 
     public String runningSystem() {
         return System.getProperty("os.name");
