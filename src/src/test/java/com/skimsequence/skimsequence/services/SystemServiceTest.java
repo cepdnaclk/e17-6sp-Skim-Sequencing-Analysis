@@ -3,6 +3,7 @@ package com.skimsequence.skimsequence.services;
 import org.junit.jupiter.api.Test;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,7 +11,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class SystemServiceTest {
 
     @Test
-    void runningSystem() {
+    void runningSystem() throws IOException {
+        String command = "ls -l";
         Runtime run = Runtime.getRuntime();
         Process process = run.exec(command);
         try {
