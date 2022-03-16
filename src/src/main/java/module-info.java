@@ -8,6 +8,7 @@ module com.skimsequence.skimsequence {
     requires org.kordamp.bootstrapfx.core;
 
     opens com.skimsequence.skimsequence to javafx.fxml;
+    opens com.skimsequence.skimsequence.controllers to javafx.fxml;
     exports com.skimsequence.skimsequence;
     exports com.skimsequence.skimsequence.services;
     opens com.skimsequence.skimsequence.services to javafx.fxml;

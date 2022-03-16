@@ -37,9 +37,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skimsequence.skimsequence.controllers.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.skimsequence.skimsequence.controllers.HelloController">
    <left>
-      <VBox fx:id="vbox1" alignment="TOP_CENTER" prefHeight="281.0" prefWidth="167.0" spacing="5.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;" BorderPane.alignment="BOTTOM_LEFT">
+      <VBox fx:id="vbox1" alignment="TOP_CENTER" prefHeight="317.0" prefWidth="214.0" spacing="5.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;" BorderPane.alignment="BOTTOM_LEFT">
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
@@ -48,52 +48,91 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ListView prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="pipeSteps" disable="true" maxHeight="1.7976931348623157E308" prefWidth="154.0" />
          </children>
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="265.0" prefWidth="117.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="BOTTOM_CENTER">
+      <VBox prefHeight="317.0" prefWidth="210.0" style="-fx-background-color: #f7f7f7;" BorderPane.alignment="BOTTOM_CENTER">
          <children>
             <Label contentDisplay="CENTER" prefHeight="33.0" prefWidth="151.0" text="Chloroplast Assembly">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
             <Separator prefWidth="200.0" />
-            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="74.0" text="Assembler:" />
-            <MenuButton mnemonicParsing="false" text="Choose an Assembler...">
-              <items>
-                <MenuItem mnemonicParsing="false" text="GetOrganelle" />
-                <MenuItem mnemonicParsing="false" text="FastPlast" />
-                  <MenuItem mnemonicParsing="false" text="NovoPlasty" />
-              </items>
-            </MenuButton>
-            <Label text="Label">
+            <Label layoutX="15.0" layoutY="114.0" text="Assembly Name:" />
+            <TextField text="Untitled Assembly" />
+            <Separator layoutX="15.0" layoutY="48.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Separator>
+            <Label text="Select Paired Reads">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="fileone" mnemonicParsing="false" onAction="#onBrowseFileOne" text="File 1" />
-            <Button fx:id="filetwo" mnemonicParsing="false" onAction="#onBrowseFileTwo" text="File 2" />
+            <HBox prefHeight="37.0" prefWidth="322.0">
+               <children>
+                  <Button fx:id="fileone" mnemonicParsing="false" onAction="#onBrowseFileOne" text="Forward">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+                  <Button fx:id="filetwo" mnemonicParsing="false" onAction="#onBrowseFileTwo" text="Reverse" />
+               </children>
+            </HBox>
+            <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="74.0" text="Assembler:" />
+            <MenuButton fx:id="assemblerSelect" mnemonicParsing="false" text="Choose an Assembler...">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#onSelAssemblyTool" text="GetOrganelle" />
+                <MenuItem mnemonicParsing="false" text="FastPlast" />
+                  <MenuItem mnemonicParsing="false" text="NovoPlasty" />
+              </items>
+            </MenuButton>
+            <Separator layoutX="15.0" layoutY="105.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Separator>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Start Assembly">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Button>
          </children>
          <padding>
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding></VBox>
    </center>
    <right>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="230.0" prefWidth="216.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;">
+      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="317.0" prefWidth="280.0" style="-fx-background-color: #fff; -fx-border-color: #e6e6e6;">
          <children>
             <Label fx:id="resultsText" alignment="CENTER" prefHeight="17.0" prefWidth="348.0" text="Results">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></Label>
-            <ProgressBar layoutX="20.0" opacity="0.65" prefHeight="48.0" prefWidth="348.0" progress="0.24">
+            <Label text="Overall Progress:">
                <padding>
-                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                  <Insets left="5.0" />
                </padding>
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ProgressBar prefHeight="18.0" prefWidth="270.0" progress="0.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" />
                </VBox.margin></ProgressBar>
+            <Separator prefWidth="200.0">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+            </Separator>
+            <ListView fx:id="outputLog" prefHeight="222.0" prefWidth="205.0">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ListView>
          </children>
          <padding>
             <Insets top="5.0" />
@@ -114,18 +153,17 @@
       </VBox>
    </bottom>
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="47.0" prefWidth="714.0" BorderPane.alignment="CENTER">
         <items>
-            <Label alignment="CENTER" prefHeight="26.0" prefWidth="165.0" text="NGS Toolkit">
+            <Label alignment="CENTER" prefHeight="26.0" prefWidth="202.0" text="NGS Toolkit">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-          <Button mnemonicParsing="false" text="Add File" />
-            <Separator orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
-            <ToggleButton mnemonicParsing="false" selected="true" text="Chloroplast" />
-            <ToggleButton layoutX="228.0" layoutY="12.0" mnemonicParsing="false" text="Mitochondria" />
-            <ToggleButton layoutX="308.0" layoutY="12.0" mnemonicParsing="false" text="ITS Region" />
+            <Separator layoutX="490.0" layoutY="10.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
+            <RadioButton fx:id="chloroplast" mnemonicParsing="false" text="Chloroplast" />
+            <RadioButton fx:id="mitochondria" layoutX="253.0" layoutY="16.0" mnemonicParsing="false" text="Mitochondria" />
+            <RadioButton fx:id="its" layoutX="345.0" layoutY="16.0" mnemonicParsing="false" text="ITS Region" />
             <Separator layoutX="73.0" layoutY="10.0" orientation="VERTICAL" prefHeight="0.0" prefWidth="0.0" />
             <Button layoutX="256.0" layoutY="12.0" mnemonicParsing="false" text="Preferences" />
         </items>

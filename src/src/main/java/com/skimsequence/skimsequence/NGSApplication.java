@@ -12,7 +12,7 @@ public class NGSApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(NGSApplication.class.getResource("HomeView.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 900, 600);
-        stage.setTitle("Hello!");
+        stage.setTitle("NGS Toolkit [DEMO UI UNDER CONSTRUCTION]");
         stage.setScene(scene);
         stage.show();
     }
