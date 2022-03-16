@@ -2,13 +2,10 @@ package com.skimsequence.skimsequence.controllers;
 
 import com.skimsequence.skimsequence.wrappers.FastPlast;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 
 import com.skimsequence.skimsequence.services.CLIService;
 import com.skimsequence.skimsequence.services.FileService;
-import com.skimsequence.skimsequence.services.UserService;
-import com.skimsequence.skimsequence.services.SystemService;
 
 public class HelloController {
     //Initialize all GUI components
@@ -17,10 +14,52 @@ public class HelloController {
     @FXML private Button button;
     @FXML private Label resultsText;
 
+    ToggleGroup pipelineSelect = new ToggleGroup();
+
+    @FXML private RadioButton chloroplast;
+    @FXML private RadioButton mitochondria;
+    @FXML private RadioButton its;
+
+    @FXML private ListView<String> pipeSteps;
+
+    @FXML private ListView<String> outputLog;
+
+    @FXML private MenuButton assemblerSelect;
+
     private CLIService cli = new CLIService();
     private String fileOne = "";
     private String fileTwo = "";
     private String assemblyTool = "FastPlast";
+
+    private static String[] chloroplastSteps = {
+                                                "Choose file(s)",
+                                                "Choose assembly tool",
+                                                "Attempt assembly",
+                                                "Annotation"
+                                                };
+
+    @FXML
+    public void initialize() {
+        /* Set styling and grouping for pipeline select buttons in toolbar */
+        chloroplast.getStyleClass().remove("radio-button");
+        chloroplast.getStyleClass().add("toggle-button");
+
+        mitochondria.getStyleClass().remove("radio-button");
+        mitochondria.getStyleClass().add("toggle-button");
+
+        its.getStyleClass().remove("radio-button");
+        its.getStyleClass().add("toggle-button");
+
+        chloroplast.setToggleGroup(pipelineSelect);
+        mitochondria.setToggleGroup(pipelineSelect);
+        its.setToggleGroup(pipelineSelect);
+
+        pipelineSelect.selectToggle(chloroplast);
+
+        /* Populate Pipeline Steps ListView */
+        pipeSteps.getItems().addAll(chloroplastSteps);
+
+    }
 
     @FXML
     protected void onHelloButtonClick() {
@@ -52,7 +91,10 @@ public class HelloController {
     //On selecting the assembly tool for the pipeline
     @FXML
     protected void onSelAssemblyTool(){
+        assemblerSelect.setText("GetOrganelle");
+        outputLog.getItems().add("GetOrganelle Selected");
 
+        pipeSteps.getItems().set(1, "Choose assembly tool [DONE]");
     }
 
     //To get the absolute path for input file 1
@@ -60,7 +102,7 @@ public class HelloController {
     protected void onBrowseFileOne() {
         try {
             String absPath = FileService.getAbsolutePath();
-            resultsText.setText("Opening ... " + absPath);
+            outputLog.getItems().add("Opening " + absPath);     //FIXME: Show filename instead of absPath
             fileOne = absPath;
 
         } catch(Exception e) {
@@ -73,12 +115,14 @@ public class HelloController {
     protected void onBrowseFileTwo() {
         try {
             String absPath = FileService.getAbsolutePath();
-            resultsText.setText("Opening ... " + absPath);
+            outputLog.getItems().add("Opening " + absPath);
             fileTwo = absPath;
 
         } catch(Exception e) {
             resultsText.setText("Error in retrieving file!");
         }
+
+        pipeSteps.getItems().set(0, "Choose file(s) [DONE]");
     }
 
     //For the middle pane
