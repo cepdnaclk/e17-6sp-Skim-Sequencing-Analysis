@@ -1,0 +1,20 @@
+[
+  {
+    "name" : "fastplast",
+    "version" : "",
+    "install" : [
+      "git clone https://github.com/mrmckain/Fast-Plast.git",
+      "cd fast-plast",
+      "perl INSTALL.pl"
+    ],
+    "uninstall" : [""],
+    "update" : [""]
+  },
+  {
+    "name" : "getorganelle",
+    "version" : "",
+    "install" : ["conda install -c bioconda getorganelle"],
+    "uninstall" : ["conda remove getorganelle"],
+    "update" : ["conda update getorganelle"]
+  }
+]
