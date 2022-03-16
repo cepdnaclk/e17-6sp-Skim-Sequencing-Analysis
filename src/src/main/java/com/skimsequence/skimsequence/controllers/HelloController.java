@@ -5,10 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-import com.skimsequence.skimsequence.services.CLIServices;
-import com.skimsequence.skimsequence.services.FileServices;
-import com.skimsequence.skimsequence.services.UserServices;
-import com.skimsequence.skimsequence.services.SystemServices;
+import com.skimsequence.skimsequence.services.CLIService;
+import com.skimsequence.skimsequence.services.FileService;
+import com.skimsequence.skimsequence.services.UserService;
+import com.skimsequence.skimsequence.services.SystemService;
 
 public class HelloController {
     //Initialize all GUI components
@@ -17,7 +17,7 @@ public class HelloController {
     @FXML private Button button;
     @FXML private Label resultsText;
 
-    private CLIServices cli = new CLIServices();
+    private CLIService cli = new CLIService();
     private String fileOne = "";
     private String fileTwo = "";
     private String assemblyTool = "FastPlast";
@@ -59,7 +59,7 @@ public class HelloController {
     @FXML
     protected void onBrowseFileOne() {
         try {
-            String absPath = FileServices.getAbsolutePath();
+            String absPath = FileService.getAbsolutePath();
             resultsText.setText("Opening ... " + absPath);
             fileOne = absPath;
 
@@ -72,7 +72,7 @@ public class HelloController {
     @FXML
     protected void onBrowseFileTwo() {
         try {
-            String absPath = FileServices.getAbsolutePath();
+            String absPath = FileService.getAbsolutePath();
             resultsText.setText("Opening ... " + absPath);
             fileTwo = absPath;
 

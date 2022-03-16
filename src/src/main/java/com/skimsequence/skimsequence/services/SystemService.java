@@ -4,10 +4,22 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class SystemService {
+    private static String system;
+    private static String arch;
+    private static Integer coresCount;
 
-    public String runningSystem() {
-        return System.getProperty("os.name");
+    public SystemService() {
+        system = System.getProperty("os.name");
+        arch = System.getProperty("os.arch");
+        coresCount = Runtime.getRuntime().availableProcessors();
     }
+
+    // To get system information
+    public static String getSystem() {
+        return system;
+    }
+    public static String getArch() { return arch; }
+    public static Integer getCoresCount() { return coresCount; }
 
     //To check for connectivity
     public static boolean isConnected() {
@@ -23,8 +35,4 @@ public class SystemService {
         }
     }
 
-    //To check and retrieve system info
-    public void getSysInfo (){
-
-    }
 }
