@@ -1,8 +1,13 @@
 package com.skimsequence.skimsequence.services;
 
 import javafx.stage.FileChooser;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class FileService {
 
@@ -16,20 +21,21 @@ public class FileService {
             if (file != null) {
                 // Shows the absolute file path
                 absPath = file.getPath();
-
             } else {
                 System.out.println("File not selected."); // A file was not chosen
             }
-
-
         } catch (Exception e){
             System.out.println("Error in retrieving file!");
         }
         return absPath;
     }
 
-    //To read a file
+    //To read a fq/fa file
     public void readFile () {
+
+    }
+
+    public static void readJSON() {
 
     }
 
