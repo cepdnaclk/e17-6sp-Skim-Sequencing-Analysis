@@ -36,9 +36,6 @@ The software will automate a lot of the intermediate steps while providing the u
 3. Provide Recommendations:   
 The solution will attempt to provide suggestions to the user on possible next steps to take in case there are multiple possibilities.
 
-## Timeline
-![Timeline](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/timeline.png)
-
 ## Workflow
 ![Workflow](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/pipelines.png)
 In the general workflow of the system, the user can choose among the existing pipelines for Chloroplast, Mitochondria and ITS regions. The steps under the implementation of each pipeline are given above. We will be using many open-source assembly tools such as FastPlast, NovoPlasty and GetOrganelle, along with other tools for pre-processing of data and for annotations. The outputs provided by these tools will be presented to the user at each step of the pipeline.
@@ -48,9 +45,20 @@ We have used the MVC architecture for the development our software. The User wil
 ![SoftwareArch](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/software_arch.png)
 
 
+## ML Aspects
+The following are the Machine Learning related functionalities that we plan on providing to the users of our software.
+1. Provide Recommendations
+Provide suggestions to the user on possible next steps to take in case there are multiple possibilities based on the previous steps.
+
+2. Filtering Output Logs
+Present the important output logs out of all the logs by the end of the assembly process through filtering.
+
+3. Performance Optimization
+Provide time estimates for different operations under the user’s system configuration and offer setting suggestions for performance improvements.
 
 
-
+## Timeline
+![Timeline](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/timeline.png)
 
 ___
 
