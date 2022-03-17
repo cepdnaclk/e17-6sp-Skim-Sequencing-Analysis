@@ -3,7 +3,7 @@ package com.skimsequence.skimsequence.services;
 public class PluginService {
 
     //To check available tools/plugins
-    public void checkAvailPlugins (){
+    public void checkAvailablePlugins (){
 
     }
 

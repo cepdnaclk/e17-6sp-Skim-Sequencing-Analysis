@@ -19,7 +19,7 @@ public class SystemService {
         return system;
     }
     public static String getArch() { return arch; }
-    public static Integer getCoresCount() { return coresCount; }
+    public static int getCoresCount() { return coresCount; }
 
     //To check for connectivity
     public static boolean isConnected() {
