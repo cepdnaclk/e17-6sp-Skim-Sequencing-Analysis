@@ -6,6 +6,7 @@ module com.skimsequence.skimsequence {
     requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
     requires org.kordamp.bootstrapfx.core;
+    requires json.simple;
 
     opens com.skimsequence.skimsequence to javafx.fxml;
     opens com.skimsequence.skimsequence.controllers to javafx.fxml;
