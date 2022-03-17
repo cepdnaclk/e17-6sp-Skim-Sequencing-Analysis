@@ -7,10 +7,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserServiceTest {
 
     @Test
-    void setPreference() {
+    void test_setPreference() {
+        UserService.setPreference("a", "b");
     }
 
     @Test
-    void updatePreferences() {
+    void test_updatePreferences() {
+    }
+
+    @Test
+    void test_getAllInstalledPlugins(){
+        UserService.getAllInstalledPlugins();
     }
 }
