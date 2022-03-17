@@ -45,7 +45,7 @@ In the general workflow of the system, the user can choose among the existing pi
 
 ## Software Architecture
 We have used the MVC architecture for the development our software. The User will be directly providing input through the App GUI, which displays all the necessary information to the user. The GUI is directly updated through the Controllers. There are several Controllers which associate with the methods defined in the Services and the Tool Wrappers in order to provide the pipeline functionality. There are multiple Services in the system to handle CLI commands, file-format handling, dependency installation, storing user preferences, check connectivity, get necessary file path for input files, and many more. All the open-source tools we are using for implementing the pipelines will be handled using Tool Wrappers for the ease of implementation. The recommendation engine will be running as a seperate part of the Services provided by the software.
-!SoftwareArch](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/software_arch.png)
+![SoftwareArch](https://github.com/cepdnaclk/e17-co328-Skim-Sequencing-Analysis/blob/main/docs/assets/img/software_arch.png)
 
 
 
