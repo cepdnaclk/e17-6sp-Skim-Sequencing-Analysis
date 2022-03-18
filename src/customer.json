@@ -1,0 +1,1 @@
+{"address":{"zipCode":10045,"city":"New York","street":"155 Middleville Road","state":"New York"},"projects":[{"title":"Business Website","budget":4500},{"title":"Sales Dashboard","budget":8500}],"paymentMethods":["PayPal","Stripe"],"name":"John Doe","id":1,"email":"john.doe@example.com","age":32}
