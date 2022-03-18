@@ -59,6 +59,13 @@ public class UserService {
         return preferences;
     }
 
+    public static void printJson(JsonObject json) {
+        json.forEach((key, value) -> System.out.println(key + " : " + value));
+    }
+    public static void printJson(JsonArray json) {
+        json.forEach(item -> System.out.println(item));
+    }
+
 }
 /*
 Reading object or array
