@@ -17,6 +17,27 @@ public class UserService {
     public static String preferencePath = "env/preferences.json";
     public static URL url = NGSApplication.class.getResource(preferencePath);
 
+    //To set preferences
+    public static void updatePreference (String key, String value){
+        try {
+            // create a writer
+            JsonObject preferences = getAllPreferences();
+            BufferedWriter writer = Files.newBufferedWriter(Paths.get(url.getPath()));
+
+            // update particular key value pair
+            preferences.put(key, value);
+
+            // write to json
+            Jsoner.serialize(preferences, writer);
+            System.out.println("Updated");
+            //close the writer
+            writer.close();
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public static JsonObject getAllPreferences() {
         JsonObject preferences = new JsonObject();
         try {
