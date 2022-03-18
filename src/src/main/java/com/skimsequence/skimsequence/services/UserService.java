@@ -4,100 +4,66 @@ import com.github.cliftonlabs.json_simple.JsonObject;
 import com.github.cliftonlabs.json_simple.Jsoner;
 import com.skimsequence.skimsequence.NGSApplication;
 
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.Reader;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Map;
 
 public class UserService {
     public static String preferencePath = "env/preferences.json";
-    public static URL url = NGSApplication.class.getResource(preferencePath);
+    public static URL pref_url = NGSApplication.class.getResource(preferencePath);
 
     //To set preferences
-    public static void updatePreference (String key, String value){
-        try {
-            // create a writer
-            JsonObject preferences = getAllPreferences();
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(url.getPath()));
-
-            // update particular key value pair
-            preferences.put(key, value);
-
-            // write to json
-            Jsoner.serialize(preferences, writer);
-            System.out.println("Updated");
-            //close the writer
-            writer.close();
-
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+    public static void updatePreference(String key, String value){
+        FileService.writeJson(key, value, preferencePath);
     }
 
     public static JsonObject getAllPreferences() {
-        JsonObject preferences = new JsonObject();
+        return FileService.readJson(preferencePath);
+    }
+
+    //To update user preferences
+    public static void updatePreferences (){
         try {
             // create a reader
-            Reader reader = Files.newBufferedReader(Paths.get(url.getPath()));
-
-            // create parser
-            JsonObject preferencesJson = (JsonObject) Jsoner.deserialize(reader);
-
-            // assign to return
-            preferences = preferencesJson;
-
-            //close reader
-            reader.close();
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return preferences;
-    }
-
-    public static void printJson(JsonObject json) {
-        json.forEach((key, value) -> System.out.println(key + " : " + value));
-    }
-    public static void printJson(JsonArray json) {
-        json.forEach(item -> System.out.println(item));
-    }
-
-}
-/*
-Reading object or array
-        try {
-            // create a reader
-            URL url = NGSApplication.class.getResource("env/customer.json");
-            Reader reader = Files.newBufferedReader(Paths.get(url.getPath()));
+            Reader reader = Files.newBufferedReader(Paths.get(pref_url.getPath()));
 
             // create parser
             JsonObject parser = (JsonObject) Jsoner.deserialize(reader);
 
             System.out.println(parser);
-                        // read projects
-            JsonArray projects = (JsonArray) parser.get("projects");
-            projects.forEach(entry -> {
-                JsonObject project = (JsonObject) entry;
-                System.out.println(project.get("title"));
-                System.out.println(project.get("budget"));
+
+            //close reader
+            reader.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void getAllInstalledPlugins(){
+        try {
+            // create a reader
+            URL url = NGSApplication.class.getResource(preferencePath);
+            System.out.println("url = " + url);
+            Reader reader = Files.newBufferedReader(Paths.get(url.getPath()));
+            System.out.println("reader = " + reader);
+            // create parser
+            JsonArray installed_plugins = (JsonArray) Jsoner.deserialize(reader);
+            System.out.println(installed_plugins);
+            System.out.println("hello");
+            installed_plugins.forEach(entry -> {
+                System.out.println(entry.getClass().getSimpleName());
             });
+
+            for (int i = 0; i < installed_plugins.size(); i++){
+                System.out.println(installed_plugins.get(i));
+            }
 
             //close reader
             reader.close();
 
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
- */
-/*
-"username" : "Jhon Doe",
-  "app_theme" : "Light",
-  "protected" : "off",
-  "password" : "",
-  "default_output_storage_path" : "",
-  "default_input_file_path" : ""
- */
+    }
+}
