@@ -7,10 +7,10 @@ public class UserService {
     private static JsonObject preferences = FileService.readJson(preferencePath);
 
     //To set a preference
-    public static void setPreference(String key, String value){
+    public static boolean setPreference(String key, String value){
         FileService.printJson(getAllPreferences());
-        FileService.writeJson(key, value, preferencePath);
-        FileService.printJson(getAllPreferences());
+        return FileService.writeJson(key, value, preferencePath);
+        // FileService.printJson(getAllPreferences());
     }
 
     // To get the cached preferences
