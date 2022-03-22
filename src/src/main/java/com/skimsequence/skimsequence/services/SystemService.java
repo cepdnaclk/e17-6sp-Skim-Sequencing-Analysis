@@ -4,9 +4,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class SystemService {
-    private static String system;
-    private static String arch;
-    private static Integer coresCount;
+    private static String system = System.getProperty("os.name");
+    private static String arch = System.getProperty("os.arch");
+    private static Integer coresCount = Runtime.getRuntime().availableProcessors();
 
     public SystemService() {
         system = System.getProperty("os.name");

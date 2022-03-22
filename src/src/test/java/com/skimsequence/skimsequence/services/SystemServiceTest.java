@@ -2,34 +2,22 @@ package com.skimsequence.skimsequence.services;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class SystemServiceTest {
 
     @Test
-    void runningSystem() throws IOException {
-        String command = "ls -l";
-        Runtime run = Runtime.getRuntime();
-        Process process = run.exec(command);
-        try {
-            process.waitFor();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        BufferedReader buf = new BufferedReader(new InputStreamReader(process. getInputStream()));
-        String out = null;
-        String result = "";
+    void test_isConnected() {
+        assertTrue(SystemService.isConnected());
     }
 
     @Test
-    void isConnected() {
-    }
+    void getSystem() { assertEquals("Mac OS X", SystemService.getSystem()); }
 
     @Test
-    void getSysInfo() {
-    }
+    void getArch() { assertEquals("aarch64", SystemService.getArch()); }
+
+    @Test
+    void getCoresCount() { assertEquals(8, SystemService.getCoresCount()); }
+
 }
