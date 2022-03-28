@@ -89,9 +89,14 @@
                   <MenuItem mnemonicParsing="false" text="NovoPlasty" />
               </items>
             </MenuButton>
+            <ToggleButton mnemonicParsing="false" text="Advanced Options...">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </ToggleButton>
             <Separator layoutX="15.0" layoutY="105.0" prefWidth="200.0">
                <VBox.margin>
-                  <Insets top="20.0" />
+                  <Insets top="120.0" />
                </VBox.margin>
             </Separator>
             <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Start Assembly">
@@ -128,7 +133,7 @@
                   <Insets left="5.0" right="5.0" />
                </padding>
             </Separator>
-            <ListView fx:id="outputLog" prefHeight="222.0" prefWidth="205.0">
+            <ListView fx:id="outputLog" maxHeight="1.7976931348623157E308" prefWidth="205.0">
                <VBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </VBox.margin>
@@ -146,7 +151,7 @@
          <children>
             <ScrollPane prefHeight="200.0" prefWidth="200.0">
               <content>
-                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="192.0" prefWidth="671.0" />
+                <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="366.0" prefWidth="671.0" />
               </content>
             </ScrollPane>
          </children>
