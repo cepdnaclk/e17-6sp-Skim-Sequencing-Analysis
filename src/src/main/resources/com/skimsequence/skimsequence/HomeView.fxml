@@ -61,7 +61,7 @@
                </font></Label>
             <Separator prefWidth="200.0" />
             <Label layoutX="15.0" layoutY="114.0" text="Assembly Name:" />
-            <TextField text="Untitled Assembly" />
+            <TextField fx:id="assemblyName" text="Untitled Assembly" />
             <Separator layoutX="15.0" layoutY="48.0" prefWidth="200.0">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -84,12 +84,12 @@
             <Label alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="74.0" text="Assembler:" />
             <MenuButton fx:id="assemblerSelect" mnemonicParsing="false" text="Choose an Assembler...">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#onSelAssemblyTool" text="GetOrganelle" />
-                <MenuItem mnemonicParsing="false" text="FastPlast" />
-                  <MenuItem mnemonicParsing="false" text="NovoPlasty" />
+                <MenuItem mnemonicParsing="false" onAction="#onSelGetOrganelle" text="GetOrganelle" />
+                <MenuItem mnemonicParsing="false" onAction="#onSelFastPlast" text="FastPlast" />
+                  <MenuItem mnemonicParsing="false" onAction="#onSelNovoPlasty" text="NovoPlasty" />
               </items>
             </MenuButton>
-            <ToggleButton mnemonicParsing="false" text="Advanced Options...">
+            <ToggleButton mnemonicParsing="false" text="Advanced Options..." >
                <VBox.margin>
                   <Insets top="30.0" />
                </VBox.margin>
@@ -99,7 +99,7 @@
                   <Insets top="120.0" />
                </VBox.margin>
             </Separator>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Start Assembly">
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="118.0" text="Start Assembly" onAction="#startAssembly">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>

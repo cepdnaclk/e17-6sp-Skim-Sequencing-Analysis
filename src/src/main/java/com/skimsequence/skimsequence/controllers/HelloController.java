@@ -25,11 +25,13 @@ public class HelloController {
     @FXML private ListView<String> outputLog;
 
     @FXML private MenuButton assemblerSelect;
+    @FXML private TextField assemblyName;
 
     private CLIService cli = new CLIService();
     private String fileOne = "";
     private String fileTwo = "";
     private String assemblyTool = "FastPlast";
+    private String assemblyFolderName = "";
 
     private static String[] chloroplastSteps = {
                                                 "Choose file(s)",
@@ -61,11 +63,7 @@ public class HelloController {
 
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-        button.setText("Clicked");
-    }
+
     @FXML
     protected void onRunButtonClick() { //Remove
         String command = "ls -l";
@@ -81,29 +79,29 @@ public class HelloController {
         }
     }
 
-    //For the leftmost pane
+
     //On selecting the pipeline to call the necessary wrapper
     @FXML
     protected void onSelPipeline(){
 
     }
 
-    //On selecting the assembly tool for the pipeline
     @FXML
-    protected void onSelAssemblyTool(){
-        assemblerSelect.setText("GetOrganelle");
-        outputLog.getItems().add("GetOrganelle Selected");
+    protected void updateName(){
+        //Set the name for the assembly process to make a folder and store output - give the name as input to the tool
+        assemblyFolderName = assemblyName.getText();
+        System.out.println(assemblyFolderName);
+        outputLog.getItems().add("Getting ready to start " + assemblyFolderName);
 
-        pipeSteps.getItems().set(1, "Choose assembly tool [DONE]");
     }
 
     //To get the absolute path for input file 1
     @FXML
     protected void onBrowseFileOne() {
         try {
-            String absPath = FileService.getAbsolutePath();
-            outputLog.getItems().add("Opening " + absPath);     //FIXME: Show filename instead of absPath
-            fileOne = absPath;
+            String [] filePath = FileService.getAbsolutePath();
+            outputLog.getItems().add("Opening " + filePath[1]);
+            fileOne = filePath[0];
 
         } catch(Exception e) {
             resultsText.setText("Error in retrieving file!");
@@ -114,9 +112,9 @@ public class HelloController {
     @FXML
     protected void onBrowseFileTwo() {
         try {
-            String absPath = FileService.getAbsolutePath();
-            outputLog.getItems().add("Opening " + absPath);
-            fileTwo = absPath;
+            String [] filePath = FileService.getAbsolutePath();
+            outputLog.getItems().add("Opening " + filePath[1]);
+            fileOne = filePath[0];
 
         } catch(Exception e) {
             resultsText.setText("Error in retrieving file!");
@@ -125,23 +123,60 @@ public class HelloController {
         pipeSteps.getItems().set(0, "Choose file(s) [DONE]");
     }
 
+    //On selecting the assembly tool for the pipeline
+    @FXML
+    protected void onSelGetOrganelle(){
+
+        assemblerSelect.setText("GetOrganelle");
+        assemblyTool = "GetOrganelle";
+        outputLog.getItems().add("GetOrganelle Selected");
+
+        pipeSteps.getItems().set(1, "Choose assembly tool [DONE]");
+    }
+
+    @FXML
+    protected void onSelFastPlast(){
+
+        assemblerSelect.setText("FastPlast");
+        assemblyTool = "FastPlast";
+        outputLog.getItems().add("FastPlast Selected");
+
+        pipeSteps.getItems().set(1, "Choose assembly tool [DONE]");
+    }
+
+    @FXML
+    protected void onSelNovoPlasty(){
+
+        assemblerSelect.setText("NovoPlasty");
+        assemblyTool = "NovoPlasty";
+        outputLog.getItems().add("NovoPlasty Selected");
+
+        pipeSteps.getItems().set(1, "Choose assembly tool [DONE]");
+    }
+
     //For the middle pane
     //Gets user preferences and calls file services for pre-processing (calls UserServices and FileServices)
-    @FXML
-    protected void updateMiddle(){
 
-    }
+    //For advanced options - open a new dialog box
 
     //To start the assembly process
     @FXML
     protected Boolean startAssembly (){ //Call necessary wrapper
+        updateName(); //Set name
+
         Boolean state = false;
         try{
             if(assemblyTool == "FastPlast"){
                 FastPlast tool = new FastPlast();
-                state = tool.startAssembly(fileOne, fileTwo);
+                state = tool.startAssembly(fileOne, fileTwo, assemblyFolderName);
                 //Set other user preferences
-            }
+
+
+            }else if(assemblyTool == "NovoPlasty"){
+
+            }else if(assemblyTool == "GetOrganelle"){
+
+            }else{}
 
         }catch (Exception e){
 
