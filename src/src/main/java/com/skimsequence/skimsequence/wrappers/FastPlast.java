@@ -72,11 +72,11 @@ public class FastPlast {
     //Running
     //Get input file path and start running the tool
     //Input files are in FASTQ format
-    public static Boolean startAssembly (String file1, String file2){
+    public static Boolean startAssembly (String file1, String file2, String folderName){
         Boolean state = false;
-        String path = "cd "; //Go to the fast-plast directory
+        String path = "cd ";                                             //FIXME:Go to the fast-plast directory
         //Add a name to the command. Add other additional options. Get them as user preferences.
-        String command = "perl fast-plast.pl -1 %s -2 %s --name %s --bowtie_index All --coverage_analysis --clean light";
+        String command = String.format("perl fast-plast.pl -1 %s -2 %s --name %s --bowtie_index All --coverage_analysis --clean light", file1, file2, folderName);
         try{
             String result = cli.exec(command);
             state = true;

@@ -14,8 +14,10 @@ import java.nio.file.Paths;
 public class FileService {
 
     //To get the absolute path for a file
-    public static String getAbsolutePath (){
+    public static String [] getAbsolutePath (){
         String absPath = "" ;
+        String fileName = "";
+        String [] names = {"", ""};
         try{
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("Browse for file path");
@@ -23,13 +25,17 @@ public class FileService {
             if (file != null) {
                 // Shows the absolute file path
                 absPath = file.getPath();
+                fileName = file.getName();
             } else {
                 System.out.println("File not selected."); // A file was not chosen
             }
         } catch (Exception e){
             System.out.println("Error in retrieving file!");
         }
-        return absPath;
+        names[0] = absPath;
+        names[1] = fileName;
+
+        return names;
     }
 
     public static void printJson(JsonObject json) {
