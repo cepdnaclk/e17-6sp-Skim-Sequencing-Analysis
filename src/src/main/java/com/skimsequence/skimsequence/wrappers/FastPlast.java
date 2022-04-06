@@ -30,6 +30,7 @@ public class FastPlast {
         String command = "git clone https://github.com/mrmckain/Fast-Plast.git";
         String result = "";
         try{
+            //Check connection first
             result = cli.exec(command);
             System.out.println(result);
             state = true;
@@ -45,7 +46,7 @@ public class FastPlast {
     //To install dependencies
     public static Boolean installDependencies (){
         Boolean state = false;
-        String command1 = "cd Fast-Plast"; //Set path - run the INSTALL.pl script found in the Fast-Plast repository
+        String command1 = "cd Fast-Plast"; //FIXME: Set path - run the INSTALL.pl script found in the Fast-Plast repository
         String command2 = "perl INSTALL.pl";
         String command3 = ""; //Enter All when they ask whether they want to automatically install the dependencies for us.
 
@@ -54,6 +55,7 @@ public class FastPlast {
         String result = "";
 
         try{
+            //Check connection first
             result = cli.exec(command1);
             System.out.println(result);
 
