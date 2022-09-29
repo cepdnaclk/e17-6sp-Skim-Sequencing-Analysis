@@ -4,6 +4,12 @@ import com.skimsequence.skimsequence.services.CLIService;
 
 public class GetOrganelle {
     private static CLIService cli = new CLIService();
+
+    public GetOrganelle(){ //Constructor
+
+    }
+
+
     //Installation
     //To create directory - Create directory under Chloroplast
     public static Boolean createDir (){ //Not necessary
@@ -16,7 +22,7 @@ public class GetOrganelle {
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -39,11 +45,11 @@ public class GetOrganelle {
                 System.out.println(result);
                 state = true;
             }catch(Exception e){
-
+                System.out.println(e);
             }
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -52,8 +58,9 @@ public class GetOrganelle {
     public static Boolean installDependencies (){
         Boolean state = false;
         String command1 = "cd GetOrganelle"; //FIXME: Set path first
-        String command2 = "curl -L https://github.com/Kinggerm/GetOrganelleDep/releases/download/v1.6.0/v1.6.0-linux.tar.gz | tar zx";
+        String command2 = "curl -L https://github.com/Kinggerm/GetOrganelleDep/releases/download/v1.7.0/v1.7.0-linux.tar.gz | tar zx";
         String command3 = "cd ..";
+
 
         //Dependencies - Bowtie2, spades, ncbi-blast
         String result = "";
@@ -67,11 +74,14 @@ public class GetOrganelle {
             System.out.println(result);
 
             result = cli.exec(command3);
+            System.out.println(result);
+
+
 
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -90,7 +100,7 @@ public class GetOrganelle {
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -100,7 +110,8 @@ public class GetOrganelle {
 
     //Run
     //From reads
-    public static Boolean startRunFromReads (String file1, String file2, String folderName){
+    //Input files are in FASTQ format
+    public Boolean startRunFromReads (String file1, String file2, String folderName){
         Boolean state = false;
         String path = "cd ";                 //FIXME:Go to the GetOrganelle directory
         //Add other additional options. Get them as user preferences.
@@ -111,6 +122,7 @@ public class GetOrganelle {
             state = true;
         }catch(Exception e){
             state = false;
+            System.out.println(e);
         }
         return state;
     }
