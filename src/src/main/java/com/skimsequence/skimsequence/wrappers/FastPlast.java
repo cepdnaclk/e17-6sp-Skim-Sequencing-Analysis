@@ -6,6 +6,10 @@ public class FastPlast {
 
     private static CLIService cli = new CLIService();
 
+    public FastPlast(){ //Constructor
+
+    }
+
     //Installation
     //To create directory - Create directory under Chloroplast
     public static Boolean createDir (){ //Not necessary
@@ -18,7 +22,7 @@ public class FastPlast {
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -36,7 +40,7 @@ public class FastPlast {
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -65,7 +69,7 @@ public class FastPlast {
             state = true;
 
         } catch (Exception e){
-
+            System.out.println(e);
         }
 
         return state;
@@ -74,16 +78,19 @@ public class FastPlast {
     //Running
     //Get input file path and start running the tool
     //Input files are in FASTQ format
-    public static Boolean startAssembly (String file1, String file2, String folderName){
+    public Boolean startAssembly (String file1, String file2, String folderName){
         Boolean state = false;
         String path = "cd ";                                             //FIXME:Go to the fast-plast directory
         //Add a name to the command. Add other additional options. Get them as user preferences.
         String command = String.format("perl fast-plast.pl -1 %s -2 %s --name %s --bowtie_index All --coverage_analysis --clean light", file1, file2, folderName);
         try{
             String result = cli.exec(command);
+            //Get output when it is done
+            getOutputLogs();
+
             state = true;
         }catch(Exception e){
-            state = false;
+            System.out.println(e);
         }
         return state;
     }
@@ -92,5 +99,35 @@ public class FastPlast {
 
     //Output
     //To retrieve output and logs
+    public static void getOutputLogs (){
+        //Go to the directory with output logs
+        String command = "cd "; //FIXME:Set path
+        String result = "";
+
+        try{
+
+            result = cli.exec(command);
+            System.out.println(result);
+
+            //Open output files
+            command = "xdg-open {filename}"; //FIXME:Set path
+
+            try{
+                result = cli.exec(command);
+                System.out.println(result);
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+        } catch (Exception e){
+            System.out.println(e);
+        }
+
+
+
+
+    }
 
 }

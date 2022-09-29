@@ -1,11 +1,16 @@
 package com.skimsequence.skimsequence.controllers;
 
 import com.skimsequence.skimsequence.wrappers.FastPlast;
+import com.skimsequence.skimsequence.wrappers.GetOrganelle;
+import com.skimsequence.skimsequence.wrappers.NovoPlasty;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 import com.skimsequence.skimsequence.services.CLIService;
 import com.skimsequence.skimsequence.services.FileService;
+
+import java.util.Objects;
 
 public class HelloController {
     //Initialize all GUI components
@@ -166,20 +171,29 @@ public class HelloController {
 
         Boolean state = false;
         try{
-            if(assemblyTool == "FastPlast"){
+            if(Objects.equals(assemblyTool, "FastPlast")){
                 FastPlast tool = new FastPlast();
-                state = tool.startAssembly(fileOne, fileTwo, assemblyFolderName);
                 //Set other user preferences
+                state = tool.startAssembly(fileOne, fileTwo, assemblyFolderName);
+
+                outputLog.getItems().add("Running FastPlast");
 
 
-            }else if(assemblyTool == "NovoPlasty"){
+            }else if(Objects.equals(assemblyTool, "GetOrganelle")){
+                GetOrganelle tool = new GetOrganelle();
+                //Set other user preferences
+                state = tool.startRunFromReads(fileOne, fileTwo, assemblyFolderName);
 
-            }else if(assemblyTool == "GetOrganelle"){
+                outputLog.getItems().add("Running GetOrganelle");
 
+
+            }else if(Objects.equals(assemblyTool, "NovoPlasty")){
+
+                outputLog.getItems().add("Running NovoPlasty");
             }else{}
 
         }catch (Exception e){
-
+            System.out.println(e);
         }
         return state;
     }
