@@ -30,7 +30,7 @@ public class FastPlast {
 
     //To clone GitHub repository in the correct directory
     public static Boolean cloneRepos (){
-        Boolean state = false;
+        boolean state = false;
         String command = "git clone https://github.com/mrmckain/Fast-Plast.git";
         String result = "";
         try{
@@ -49,7 +49,7 @@ public class FastPlast {
 
     //To install dependencies
     public static Boolean installDependencies (){
-        Boolean state = false;
+        boolean state = false;
         String command1 = "cd Fast-Plast"; //FIXME: Set path - run the INSTALL.pl script found in the Fast-Plast repository
         String command2 = "perl INSTALL.pl";
         String command3 = ""; //Enter All when they ask whether they want to automatically install the dependencies for us.
@@ -79,7 +79,7 @@ public class FastPlast {
     //Get input file path and start running the tool
     //Input files are in FASTQ format
     public Boolean startAssembly (String file1, String file2, String folderName){
-        Boolean state = false;
+        boolean state = false;
         String path = "cd ";                                             //FIXME:Go to the fast-plast directory
         //Add a name to the command. Add other additional options. Get them as user preferences.
         String command = String.format("perl fast-plast.pl -1 %s -2 %s --name %s --bowtie_index All --coverage_analysis --clean light", file1, file2, folderName);
