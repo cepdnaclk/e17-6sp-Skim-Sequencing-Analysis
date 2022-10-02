@@ -188,7 +188,8 @@ public class HelloController {
 
 
             }else if(Objects.equals(assemblyTool, "NovoPlasty")){
-
+                NovoPlasty tool = new NovoPlasty();
+                state = tool.startAssembly(fileOne, fileTwo, assemblyFolderName);
                 outputLog.getItems().add("Running NovoPlasty");
             }else{}
 
